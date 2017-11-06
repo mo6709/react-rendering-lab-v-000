@@ -9,7 +9,7 @@ class Animation extends React.Component {
       url: ' http://placehold.it/500x150'
     };
   }
-
+  
   getNewCat = () => {
     fetch('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC')
       .then((res, err) => {
@@ -28,6 +28,9 @@ class Animation extends React.Component {
     const progressBar = document.getElementById('progress-bar');
     progressBar.className = 'off on';
     setTimeout(() => progressBar.className = 'off', 1100);
+  }
+  componentWillUpdate(){
+    this.showLoadingBar();
   }
 
   render() {
